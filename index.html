@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nishtha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-dark: #0f1016;
+            --bg-charcoal: #1a1c2c;
+            --neon-blurple: #5865f2;
+            --hot-pink: #ff00aa;
+            --soft-gold: #f0b132;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-charcoal) 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        /* ===== BACKGROUND LAYER & ANIMATED BLOBS ===== */
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--neon-blurple);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--hot-pink);
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+        
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--soft-gold);
+            bottom: 10%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        .blob-4 {
+            width: 450px;
+            height: 450px;
+            background: var(--neon-blurple);
+            top: 20%;
+            right: 20%;
+            animation-delay: -15s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, 50px) scale(1.05);
+            }
+            50% {
+                transform: translate(0, 100px) scale(0.95);
+            }
+            75% {
+                transform: translate(-50px, 50px) scale(1.05);
+            }
+        }
+        
+        /* ===== GLASSMORPHISM EFFECT ===== */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* ===== SECTION 1: HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--neon-blurple), var(--hot-pink), var(--soft-gold));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--soft-gold);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+        
+        /* ===== SECTION 2: SPOTLIGHT (TILT CARD) ===== */
+        .spotlight {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .tilt-wrapper {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .glass-card {
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+        
+        .photo-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transform: translateZ(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(45deg, var(--neon-blurple), var(--hot-pink));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .photo-placeholder i {
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transform: translateZ(30px);
+        }
+        
+        .name {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--soft-gold), var(--hot-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .note {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        /* ===== SECTION 3: MEMORY LANE ===== */
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, var(--neon-blurple), var(--soft-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .image-card {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            filter: saturate(0.7) brightness(0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-card:hover {
+            filter: saturate(1) brightness(1);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--hot-pink);
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .image-1 { background: linear-gradient(45deg, #ff6b6b, #ffa8a8); }
+        .image-2 { background: linear-gradient(45deg, #4d96ff, #6bc5ff); }
+        .image-3 { background: linear-gradient(45deg, #6bceff, #a5deff); }
+        .image-4 { background: linear-gradient(45deg, #ffd93d, #fffa88); }
+        .image-5 { background: linear-gradient(45deg, #ff6b9d, #ffb8d9); }
+        .image-6 { background: linear-gradient(45deg, #6bffb8, #a8ffce); }
+        .image-7 { background: linear-gradient(45deg, #9d6bff, #d0b8ff); }
+        .image-8 { background: linear-gradient(45deg, #ffb86b, #ffd9a8); }
+        
+        /* ===== SECTION 4: BIRTHDAY WISHES ===== */
+        .wishes-section {
+            padding: 6rem 0;
+        }
+        
+        .wishes-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(90deg, var(--hot-pink), var(--soft-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .wish-card {
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 0, 170, 0.2);
+        }
+        
+        .wish-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blurple), var(--hot-pink));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .wish-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .wish-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: float-icon 3s ease-in-out infinite;
+        }
+        
+        .wish-card:nth-child(1) .wish-icon {
+            color: #ff6b6b;
+            animation-delay: 0s;
+        }
+        
+        .wish-card:nth-child(2) .wish-icon {
+            color: #f0b132;
+            animation-delay: 0.5s;
+        }
+        
+        .wish-card:nth-child(3) .wish-icon {
+            color: #5865f2;
+            animation-delay: 1s;
+        }
+        
+        .wish-card:nth-child(4) .wish-icon {
+            color: #ff00aa;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes float-icon {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .wish-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .wish-card:nth-child(1) .wish-title {
+            color: #ff6b6b;
+        }
+        
+        .wish-card:nth-child(2) .wish-title {
+            color: #f0b132;
+        }
+        
+        .wish-card:nth-child(3) .wish-title {
+            color: #5865f2;
+        }
+        
+        .wish-card:nth-child(4) .wish-title {
+            color: #ff00aa;
+        }
+        
+        .wish-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .footer-content {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        
+        .footer-content i {
+            color: var(--hot-pink);
+            margin: 0 0.5rem;
+        }
+        
+        .celebrate-btn {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--neon-blurple), var(--hot-pink));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .celebrate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 170, 0.3);
+        }
+
+        .celebrate-btn1{
+            
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container {
+            width: 200px;
+            height: 300px;
+            border: 1px solid black;
+            margin-bottom: 25px;
+            }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* ===== CANVAS FOR CONFETTI ===== */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .glass-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .name {
+                font-size: 3rem;
+            }
+            
+            .wishes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .glass-card {
+                padding: 2rem;
+            }
+            
+            .photo-placeholder {
+                height: 400px;
+            }
+            
+            .wishes-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .wish-card {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .wishes-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .wish-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Layer with Animated Blobs -->
+    <div class="background-layer">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+    
+    <!-- Canvas for Confetti Effect -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Section 1: Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>
+                <span>Happy Birthday</span><br>
+                <span>Nishtha</span>
+            </h1>
+            <p class="hero-subtitle">
+                Wishing you a day filled with joy, laughter, and beautiful moments. 
+                Scroll down for a special surprise just for you!
+            </p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll down for a surprise</span>
+            <i>↓</i>
+        </div>
+    </section>
+    
+    <!-- Section 2: Spotlight (Tilt Card) -->
+    <section class="spotlight">
+        <div class="container">
+            <div class="tilt-wrapper">
+                <div class="glass-card glass">
+                    <div class="photo-container">
+                        <div class="photo-placeholder ">
+                            
+                            <img src="Photos/1.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;">
+                    
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="name">Nishtha</h2>
+                        <p class="note">
+                            On your special day, I want you to know how incredibly amazing you are. 
+                            Your kindness, intelligence, and vibrant spirit light up every room you enter. 
+                            May this year bring you closer to your dreams, fill your life with happiness, 
+                            and surround you with love. Here's to celebrating you today and always!
+                        </p>
+                        <p class="note">
+                            Wishing you a birthday as wonderful as you are! 🎉
+                        </p>
+
+                        <p>
+                            Ye sab gyan ki baatein maine AI se gererate karai hai !
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <div class="celebrate-btn1">
+        <button class="celebrate-btn" id="celebrate-button">
+            <i>🎉</i> Celebrate Nishtha! <i>🎂</i>
+        </button>
+    </div>
+    
+    <!-- Section 3: Memory Lane -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Captured Moments</h2>
+            <div class="gallery-grid">
+                <div class="image-card glass">
+                    <div class="image-placeholder image-1"><img src="Photos/2.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-2"><img src="Photos/3.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-3"><img src="Photos/4.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-4"><img src="Photos/5.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-5"><img src="Photos/6.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-6"><img src="Photos/7.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-7"><img src="Photos/8.JPG" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+                <div class="image-card glass">
+                    <div class="image-placeholder image-8"><img src="Photos/9.jpeg" alt="Nishtha" style="width:100%;height:100%;object-fit:cover;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 4: Birthday Wishes -->
+    <section class="wishes-section">
+        <div class="container">
+            <h2>Birthday Wishes For You</h2>
+            <div class="wishes-grid">
+                <div class="wish-card glass">
+                    <div class="wish-icon">❤️</div>
+                    <h3 class="wish-title">Endless Love</h3>
+                    <p class="wish-description">May your life be filled with endless love and compassion, today and always.</p>
+                </div>
+                
+                
+                <div class="wish-card glass">
+                    <div class="wish-icon">✨</div>
+                    <h3 class="wish-title">Dreams Come True</h3>
+                    <p class="wish-description">May all your dreams and aspirations come true in the most beautiful ways possible.</p>
+                </div>
+                
+                <div class="wish-card glass">
+                    <div class="wish-icon">🎂</div>
+                    <h3 class="wish-title">Sweet Celebrations</h3>
+                    <p class="wish-description">Here's to a day as sweet as cake and a year as bright as birthday candles!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Made with <i>❤️</i> by Your Brother</p>
+                <p id="current-year">© <span id="year"></span> All the best on your special day!</p>
+                <button class="celebrate-btn" id="celebrate-button">
+                    <i>🎉</i> Celebrate Nishtha! <i>🎂</i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== JAVASCRIPT =====
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // ===== 3D TILT CARD EFFECT =====
+        const tiltCard = document.querySelector('.glass-card');
+        const tiltWrapper = document.querySelector('.tilt-wrapper');
+        
+        tiltWrapper.addEventListener('mousemove', (e) => {
+            const cardRect = tiltWrapper.getBoundingClientRect();
+            const cardWidth = cardRect.width;
+            const cardHeight = cardRect.height;
+            
+            // Calculate mouse position relative to card center
+            const centerX = cardRect.left + cardWidth / 2;
+            const centerY = cardRect.top + cardHeight / 2;
+            
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+            
+            // Calculate rotation (max 15 degrees)
+            const rotateY = (mouseX / (cardWidth / 2)) * 15;
+            const rotateX = -(mouseY / (cardHeight / 2)) * 15;
+            
+            // Apply transformation with perspective
+            tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+            
+            // Add lighting effect
+            const shadowX = -rotateY / 2;
+            const shadowY = rotateX / 2;
+            tiltCard.style.boxShadow = `
+                ${shadowX}px ${shadowY}px 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(255, 255, 255, 0.05)
+            `;
+        });
+        
+        tiltWrapper.addEventListener('mouseleave', () => {
+            // Smoothly return card to original position
+            tiltCard.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+            tiltCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            tiltCard.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
+            
+            // Remove transition after animation completes
+            setTimeout(() => {
+                tiltCard.style.transition = '';
+            }, 500);
+        });
+        
+        // ===== CONFETTI EFFECT =====
+        const confettiCanvas = document.getElementById('confetti-canvas');
+        const ctx = confettiCanvas.getContext('2d');
+        let confettiParticles = [];
+        
+        // Set canvas dimensions
+        function resizeCanvas() {
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
+        }
+        
+        // Create confetti particle
+        function createConfettiParticle(x, y) {
+            const colors = ['#5865f2', '#ff00aa', '#f0b132', '#ffffff'];
+            const types = ['circle', 'square', 'star'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            return {
+                x: x,
+                y: y,
+                size: Math.random() * 10 + 5,
+                speedX: Math.random() * 6 - 3,
+                speedY: Math.random() * 5 + 3,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                rotation: Math.random() * 360,
+                rotationSpeed: Math.random() * 10 - 5,
+                opacity: 1,
+                gravity: 0.1,
+                type: type,
+                wiggle: Math.random() * 2 - 1,
+                wiggleSpeed: Math.random() * 0.05 + 0.02
+            };
+        }
+        
+        // Draw a star shape
+        function drawStar(ctx, x, y, radius, color) {
+            ctx.save();
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            
+            for (let i = 0; i < 5; i++) {
+                const angle = (i * 2 * Math.PI) / 5 - Math.PI / 2;
+                const xCoord = x + radius * Math.cos(angle);
+                const yCoord = y + radius * Math.sin(angle);
+                
+                if (i === 0) {
+                    ctx.moveTo(xCoord, yCoord);
+                } else {
+                    ctx.lineTo(xCoord, yCoord);
+                }
+                
+                const nextAngle = angle + Math.PI / 5;
+                ctx.lineTo(x + (radius / 2) * Math.cos(nextAngle), y + (radius / 2) * Math.sin(nextAngle));
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+        
+        // Draw confetti particles
+        function drawConfetti() {
+            ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+            
+            for (let i = 0; i < confettiParticles.length; i++) {
+                const p = confettiParticles[i];
+                
+                ctx.save();
+                ctx.globalAlpha = p.opacity;
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+                
+                if (p.type === 'circle') {
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (p.type === 'square') {
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                } else if (p.type === 'star') {
+                    drawStar(ctx, 0, 0, p.size / 2, p.color);
+                }
+                
+                ctx.restore();
+                
+                // Update particle position
+                p.x += p.speedX + Math.sin(Date.now() * p.wiggleSpeed) * p.wiggle;
+                p.y += p.speedY;
+                p.speedY += p.gravity;
+                p.rotation += p.rotationSpeed;
+                p.opacity -= 0.005;
+                
+                // Remove particles that are off-screen or faded out
+                if (p.y > confettiCanvas.height || p.opacity <= 0) {
+                    confettiParticles.splice(i, 1);
+                    i--;
+                }
+            }
+            
+            // Continue animation if there are still particles
+            if (confettiParticles.length > 0) {
+                requestAnimationFrame(drawConfetti);
+            }
+        }
+        
+        // Launch confetti
+        function launchConfetti(particleCount = 150) {
+            // Clear existing particles
+            confettiParticles = [];
+            
+            // Create new particles
+            for (let i = 0; i < particleCount; i++) {
+                const x = Math.random() * confettiCanvas.width;
+                const y = Math.random() * confettiCanvas.height / 2;
+                confettiParticles.push(createConfettiParticle(x, y));
+            }
+            
+            // Start animation
+            drawConfetti();
+        }
+        
+        // Trigger confetti on button click
+        const celebrateButton = document.getElementById('celebrate-button');
+        celebrateButton.addEventListener('click', () => {
+            launchConfetti(200);
+            
+            // Add a little bounce to the button
+            celebrateButton.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                celebrateButton.style.transform = 'scale(1)';
+            }, 150);
+        });
+        
+        // Trigger confetti when reaching footer (simple version)
+        window.addEventListener('scroll', () => {
+            const footer = document.querySelector('footer');
+            const footerRect = footer.getBoundingClientRect();
+            
+            // If footer is visible in the viewport
+            if (footerRect.top < window.innerHeight && footerRect.bottom > 0) {
+                // Check if we haven't already triggered confetti for footer
+                if (!document.body.classList.contains('footer-confetti-triggered')) {
+                    document.body.classList.add('footer-confetti-triggered');
+                    setTimeout(() => {
+                        launchConfetti(80);
+                    }, 500);
+                }
+            }
+        });
+        
+        // ===== INITIALIZE =====
+        window.addEventListener('load', () => {
+            // Set canvas size
+            resizeCanvas();
+            
+            // Add a few random sparkles on load
+            setTimeout(() => {
+                launchConfetti(30);
+            }, 1000);
+        });
+        
+        window.addEventListener('resize', resizeCanvas);
+    </script>
+</body>
+</html>
